@@ -46,4 +46,17 @@ public class PostTag {
         return post;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PostTag postTag = (PostTag) o;
+        return Objects.equals(tag, postTag.tag) && Objects.equals(post, postTag.post);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tag, post);
+    }
+
 }

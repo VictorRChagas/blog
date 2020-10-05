@@ -46,4 +46,17 @@ public class PostAuthor {
         return post;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PostAuthor that = (PostAuthor) o;
+        return Objects.equals(author, that.author) && Objects.equals(post, that.post);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, post);
+    }
+
 }
