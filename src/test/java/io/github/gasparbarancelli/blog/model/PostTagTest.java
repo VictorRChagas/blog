@@ -16,7 +16,7 @@ public class PostTagTest {
     );
 
     @Test
-    public void emptyCconstructor() {
+    public void emptyConstructor() {
         Assertions.assertDoesNotThrow(PostTag::new);
     }
 

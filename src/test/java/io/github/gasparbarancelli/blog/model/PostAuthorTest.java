@@ -19,7 +19,7 @@ public class PostAuthorTest {
     );
 
     @Test
-    public void emptyCconstructor() {
+    public void emptyConstructor() {
         Assertions.assertDoesNotThrow(PostAuthor::new);
     }
 

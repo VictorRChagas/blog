@@ -20,7 +20,7 @@ public class PostTest {
     }
 
     @Test
-    public void emptyCconstructor() {
+    public void emptyConstructor() {
         Assertions.assertDoesNotThrow(Post::new);
     }
 

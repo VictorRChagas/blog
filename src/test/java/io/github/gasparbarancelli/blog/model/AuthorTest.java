@@ -14,7 +14,7 @@ public class AuthorTest {
     private static final String AUTHOR_TWITTER = "https://twitter.com/gasparbjr";
 
     @Test
-    public void emptyCconstructor() {
+    public void emptyConstructor() {
         Assertions.assertDoesNotThrow(Author::new);
     }
 

@@ -10,7 +10,7 @@ public class TagTest {
     private static final String TAG_DESCRIPTION = "Java";
 
     @Test
-    public void emptyCconstructor() {
+    public void emptyConstructor() {
         Assertions.assertDoesNotThrow(Tag::new);
     }
 
