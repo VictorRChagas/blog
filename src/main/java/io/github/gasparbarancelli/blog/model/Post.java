@@ -46,7 +46,7 @@ public class Post {
         this.lastModified = LocalDate.now();
     }
 
-    private static Post of(@NotNull String title, @NotNull String summary, @NotNull String description) {
+    public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description) {
         return new Post(title, summary, description);
     }
 
@@ -103,12 +103,12 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Post post = (Post) o;
-        return Objects.equals(id, post.id);
+        return Objects.equals(title, post.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(title);
     }
 
 }

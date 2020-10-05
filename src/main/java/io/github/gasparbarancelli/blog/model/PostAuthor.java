@@ -20,8 +20,8 @@ public class PostAuthor {
     @ManyToOne(optional = false)
     @JoinColumn(name = "ID_POST")
     private Post post;
-    @Deprecated
 
+    @Deprecated
     public PostAuthor() {
     }
 

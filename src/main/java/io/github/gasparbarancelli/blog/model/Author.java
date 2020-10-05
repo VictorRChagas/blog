@@ -37,6 +37,10 @@ public class Author {
         this.mail = Objects.requireNonNull(mail, "mail must not be null");
     }
 
+    public static AuthorBuilder builder(@NotNull String name, @NotNull String mail) {
+        return new AuthorBuilder(name, mail);
+    }
+
     public static class AuthorBuilder {
 
         private final Author author;
@@ -95,12 +99,12 @@ public class Author {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return Objects.equals(id, author.id);
+        return Objects.equals(name, author.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(name);
     }
 
 }
