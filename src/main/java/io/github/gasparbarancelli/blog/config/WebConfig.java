@@ -3,7 +3,10 @@ package io.github.gasparbarancelli.blog.config;
 import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -38,9 +41,9 @@ public class WebConfig implements WebMvcConfigurer {
 				"/css/**",
 				"/js/**")
 				.addResourceLocations(
-						"classpath:templates/static/img/",
-						"classpath:templates/static/css/",
-						"classpath:templates/static/js/");
+						"classpath:static/img/",
+						"classpath:static/css/",
+						"classpath:static/js/");
 	}
 
 	private MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
@@ -56,6 +59,15 @@ public class WebConfig implements WebMvcConfigurer {
 		converters.add(new StringHttpMessageConverter());
 		converters.add(customJackson2HttpMessageConverter());
 		converters.add(new FormHttpMessageConverter());
+	}
+
+	@Bean
+	public MessageSource messageSource() {
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+		messageSource.setBasename("classpath:i18n/messages");
+		messageSource.setDefaultEncoding("UTF-8");
+		messageSource.setCacheSeconds(3600);
+		return messageSource;
 	}
 
 }
