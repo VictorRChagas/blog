@@ -11,6 +11,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 @ExtendWith(MockitoExtension.class)
 public class SubscriptionControllerTest {
 
@@ -39,5 +41,11 @@ public class SubscriptionControllerTest {
         newsLetterService.subscribeNewUser(email);
 
         newsLetterData.save(new NewsLetterSubscription(email));
+    }
+
+    @Test
+    @DisplayName("throw exception for invalid mails")
+    private void thorwsIllegalArgumentExceptionIfEmailIsNotValid() {
+        assertThrows(IllegalArgumentException.class, () -> newsLetterService.subscribeNewUser("john"));
     }
 }
