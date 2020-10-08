@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FacadeService {
@@ -27,6 +28,10 @@ public class FacadeService {
 
     public List<Post> findTop5PostsByTag(@NotNull Tag tag) {
         return postService.findByTag(tag, PageRequest.of(0, 5));
+    }
+
+    public Optional<Post> getPostByUrl(@NotNull String url) {
+        return postService.findByUrl(url);
     }
 
 }

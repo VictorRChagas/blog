@@ -2,6 +2,7 @@ package io.github.gasparbarancelli.blog.post;
 
 import io.github.gasparbarancelli.blog.author.Author;
 import io.github.gasparbarancelli.blog.tag.Tag;
+import io.github.gasparbarancelli.blog.utils.StringUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -23,6 +24,9 @@ public class Post {
     @Column(name = "TITLE", nullable = false, length = 100)
     private String title;
 
+    @Column(name = "URL", nullable = false, length = 150)
+    private String url;
+
     @Column(name = "LAST_MODIFIED", nullable = false)
     private LocalDate lastModified;
 
@@ -43,9 +47,10 @@ public class Post {
     }
 
     private Post(@NotNull String title, @NotNull String summary, @NotNull String description) {
-        this.title = Objects.requireNonNull(title, "title must not be null");
+        this.title = Objects.requireNonNull(title, "title must not be null").trim();
         this.summary = Objects.requireNonNull(summary, "summary must not be null");
         this.description = Objects.requireNonNull(description, "description must not be null");
+        this.url = StringUtils.removeAccents(this.title);
         this.lastModified = LocalDate.now();
     }
 
@@ -59,6 +64,10 @@ public class Post {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public LocalDate getLastModified() {

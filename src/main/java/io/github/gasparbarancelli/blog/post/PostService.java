@@ -5,9 +5,12 @@ import org.springframework.data.domain.Pageable;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Optional;
 
 public interface PostService {
 
     List<Post> findByTag(@NotNull Tag tag, @NotNull Pageable pageable);
+
+    Optional<Post> findByUrl(@NotNull String url);
 
 }
