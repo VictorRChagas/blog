@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+import static io.github.gasparbarancelli.blog.utils.Validators.isEmailValid;
+
 @Entity
 @Table(name = "AUTHOR")
 public class Author {
@@ -16,8 +18,8 @@ public class Author {
     @Column(name = "NAME", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "MAIL", nullable = false, length = 50)
-    private String mail;
+    @Column(name = "EMAIL", nullable = false, length = 50)
+    private String email;
 
     @Column(name = "LINKEDIN", length = 100)
     private String linkedIn;
@@ -32,21 +34,24 @@ public class Author {
     public Author() {
     }
 
-    private Author(@NotNull String name, @NotNull String mail) {
+    private Author(@NotNull String name, @NotNull String email) {
         this.name = Objects.requireNonNull(name, "name must not be null");
-        this.mail = Objects.requireNonNull(mail, "mail must not be null");
+        this.email = Objects.requireNonNull(email, "email must not be null");
+        if (email.isBlank() || !isEmailValid(email)) {
+            throw new IllegalArgumentException("email is not valid");
+        }
     }
 
-    public static AuthorBuilder builder(@NotNull String name, @NotNull String mail) {
-        return new AuthorBuilder(name, mail);
+    public static AuthorBuilder builder(@NotNull String name, @NotNull String email) {
+        return new AuthorBuilder(name, email);
     }
 
     public static class AuthorBuilder {
 
         private final Author author;
 
-        public AuthorBuilder(@NotNull String name, @NotNull String mail) {
-            this.author = new Author(name, mail);
+        public AuthorBuilder(@NotNull String name, @NotNull String email) {
+            this.author = new Author(name, email);
         }
 
         public AuthorBuilder linkedIn(String linkedIn) {
@@ -78,8 +83,8 @@ public class Author {
         return name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
     public String getLinkedIn() {
