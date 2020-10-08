@@ -23,21 +23,21 @@ public class NewsLetterServiceTest {
     @Test
     @DisplayName("make sure the save is called in data layer")
     public void makeSureSaveIsCalled() {
-        newsLetterService.subscribe(NEWS_LETTER);
+        newsLetterService.save(NEWS_LETTER);
         verify(newsLetterData).save(any(NewsLetter.class));
     }
 
     @Test
     @DisplayName("make sure the delete is called in data layer")
     public void makeSureDeleteIsCalled() {
-        newsLetterService.unsubscribe(NEWS_LETTER);
+        newsLetterService.delete(NEWS_LETTER);
         verify(newsLetterData).deleteByEmail(any(String.class));
     }
 
     @Test
     @DisplayName("does not throw any execpton for valid emails")
     public void doesNotThrowsForValidEmails() {
-        assertDoesNotThrow(() -> newsLetterService.subscribe(NEWS_LETTER));
+        assertDoesNotThrow(() -> newsLetterService.save(NEWS_LETTER));
     }
 
 }

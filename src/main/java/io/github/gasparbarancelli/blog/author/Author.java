@@ -1,4 +1,4 @@
-package io.github.gasparbarancelli.blog.post;
+package io.github.gasparbarancelli.blog.author;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

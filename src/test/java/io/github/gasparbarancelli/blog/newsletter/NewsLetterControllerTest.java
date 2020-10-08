@@ -23,14 +23,14 @@ public class NewsLetterControllerTest {
     @DisplayName("make sure the subscribe new user in service is called")
     public void subscribeServiceIsCalled() {
         newsLetterController.subscribe(EMAIL);
-        verify(newsLetterService).subscribe(any(NewsLetter.class));
+        verify(newsLetterService).save(any(NewsLetter.class));
     }
 
     @Test
     @DisplayName("make sure that when removing a user the service is called")
     public void unsubscribeServiceIsCalled() {
         newsLetterController.unsubscribe(EMAIL);
-        verify(newsLetterService).unsubscribe(any(NewsLetter.class));
+        verify(newsLetterService).delete(any(NewsLetter.class));
     }
 
 }

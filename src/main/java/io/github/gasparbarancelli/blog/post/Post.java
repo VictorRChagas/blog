@@ -1,5 +1,8 @@
 package io.github.gasparbarancelli.blog.post;
 
+import io.github.gasparbarancelli.blog.author.Author;
+import io.github.gasparbarancelli.blog.tag.Tag;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;

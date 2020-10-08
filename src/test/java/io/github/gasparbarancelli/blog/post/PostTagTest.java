@@ -1,5 +1,6 @@
 package io.github.gasparbarancelli.blog.post;
 
+import io.github.gasparbarancelli.blog.tag.Tag;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

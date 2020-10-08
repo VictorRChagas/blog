@@ -1,5 +1,7 @@
 package io.github.gasparbarancelli.blog.post;
 
+import io.github.gasparbarancelli.blog.author.Author;
+import io.github.gasparbarancelli.blog.tag.Tag;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

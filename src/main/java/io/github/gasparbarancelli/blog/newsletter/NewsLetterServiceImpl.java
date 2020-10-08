@@ -14,12 +14,12 @@ public class NewsLetterServiceImpl implements NewsLetterService {
     }
 
     @Override
-    public NewsLetter subscribe(@NotNull NewsLetter newsLetter) {
+    public NewsLetter save(@NotNull NewsLetter newsLetter) {
         return newsLetterData.save(newsLetter);
     }
 
     @Override
-    public boolean unsubscribe(@NotNull NewsLetter newsLetter) {
+    public boolean delete(@NotNull NewsLetter newsLetter) {
         return newsLetterData.deleteByEmail(newsLetter.getEmail()) == 1;
     }
 

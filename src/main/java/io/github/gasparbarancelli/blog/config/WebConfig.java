@@ -39,11 +39,13 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addResourceHandler(
 				"/img/**",
 				"/css/**",
-				"/js/**")
+				"/js/**",
+				"/webjars/**")
 				.addResourceLocations(
 						"classpath:static/img/",
 						"classpath:static/css/",
-						"classpath:static/js/");
+						"classpath:static/js/",
+						"/webjars/");
 	}
 
 	private MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {

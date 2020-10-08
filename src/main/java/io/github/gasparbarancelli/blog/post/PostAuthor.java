@@ -1,11 +1,13 @@
 package io.github.gasparbarancelli.blog.post;
 
+import io.github.gasparbarancelli.blog.author.Author;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
-@Table(name = "POST")
+@Table(name = "POST_AUTHOR")
 public class PostAuthor {
 
     @Id

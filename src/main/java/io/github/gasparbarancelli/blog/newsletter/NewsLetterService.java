@@ -2,8 +2,8 @@ package io.github.gasparbarancelli.blog.newsletter;
 
 public interface NewsLetterService {
 
-    NewsLetter subscribe(NewsLetter newsLetter);
+    NewsLetter save(NewsLetter newsLetter);
 
-    boolean unsubscribe(NewsLetter newsLetter);
+    boolean delete(NewsLetter newsLetter);
 
 }
