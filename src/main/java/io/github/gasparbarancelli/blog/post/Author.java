@@ -18,7 +18,7 @@ public class Author {
     @Column(name = "NAME", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "EMAIL", nullable = false, length = 50)
+    @Column(name = "EMAIL", nullable = false, length = 320)
     private String email;
 
     @Column(name = "LINKEDIN", length = 100)
