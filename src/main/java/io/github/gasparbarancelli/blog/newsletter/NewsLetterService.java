@@ -2,5 +2,8 @@ package io.github.gasparbarancelli.blog.newsletter;
 
 public interface NewsLetterService {
 
-    void subscribeNewUser(String email);
+    NewsLetter subscribe(NewsLetter newsLetter);
+
+    boolean unsubscribe(NewsLetter newsLetter);
+
 }
