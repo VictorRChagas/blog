@@ -32,6 +32,9 @@ public class Post {
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
+    @Column(name = "URL_POST", nullable = false)
+    private String url;
+
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private final Set<PostTag> tags = new HashSet<>();
 
@@ -42,15 +45,16 @@ public class Post {
     public Post() {
     }
 
-    private Post(@NotNull String title, @NotNull String summary, @NotNull String description) {
+    private Post(@NotNull String title, @NotNull String summary, @NotNull String description, @NotNull String url) {
         this.title = Objects.requireNonNull(title, "title must not be null");
         this.summary = Objects.requireNonNull(summary, "summary must not be null");
         this.description = Objects.requireNonNull(description, "description must not be null");
+        this.url = Objects.requireNonNull(url, "url must not be null");
         this.lastModified = LocalDate.now();
     }
 
-    public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description) {
-        return new Post(title, summary, description);
+    public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description, @NotNull String url) {
+        return new Post(title, summary, description, url);
     }
 
     public Long getId() {
@@ -75,6 +79,10 @@ public class Post {
 
     public Set<PostTag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public Post addTag(Tag tag) {

@@ -10,4 +10,5 @@ public interface PostService {
 
     List<Post> findByTag(@NotNull Tag tag, @NotNull Pageable pageable);
 
+    List<Post> findAll();
 }

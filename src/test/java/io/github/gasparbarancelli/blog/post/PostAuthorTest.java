@@ -16,7 +16,8 @@ public class PostAuthorTest {
     private static final Post post = Post.of(
             "Clean Code",
             "Summary",
-            "Description"
+            "Description",
+            "https://www.blog.com.br/clean-code"
     );
 
     @Test
