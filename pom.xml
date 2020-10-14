@@ -96,6 +96,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>com.github.dfabulich</groupId>
+			<artifactId>sitemapgen4j</artifactId>
+			<version>1.0.6</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>

@@ -27,6 +27,13 @@ public class PostServiceImpl implements PostService {
         return postData.findByTag(tag, pageable);
     }
 
+    // todo on pre save, we need to check if the post got updated if so,
+    //  we need to update the last modification field
+    @Override
+    public List<Post> findAll() {
+        return postData.findAll();
+    }
+  
     @Override
     public Optional<Post> findByUrl(@NotNull String url) {
         Objects.requireNonNull(url, "url must not be null");
