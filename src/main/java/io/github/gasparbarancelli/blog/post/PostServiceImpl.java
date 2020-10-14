@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -32,4 +33,11 @@ public class PostServiceImpl implements PostService {
     public List<Post> findAll() {
         return postData.findAll();
     }
+  
+    @Override
+    public Optional<Post> findByUrl(@NotNull String url) {
+        Objects.requireNonNull(url, "url must not be null");
+        return postData.findByUrl(url);
+    }
+
 }

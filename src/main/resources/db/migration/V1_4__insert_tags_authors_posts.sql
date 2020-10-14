@@ -6,10 +6,12 @@ insert into AUTHOR (ID, NAME, EMAIL)
 values (1, 'Gaspar Barancelli Junior', 'gasparbarancelli@gmail.com'),
        (2, 'João Chagas', 'jvrc2000@outlook.com');
 
-insert into POST (ID, TITLE, LAST_MODIFIED, SUMMARY, DESCRIPTION, URL_POST)
+
+insert into POST (ID, TITLE, URL, LAST_MODIFIED, SUMMARY, DESCRIPTION)
 values (
     1,
     'Java Spring OAuth2 and Basic Auth Support',
+    'java-spring-oauth2-and-basic-auth-support',
     current_date,
     'The goal of the post is to share an idea of how can we provide the basic authentication and OAuth 2 authentication for the APIs.',
     'Description',
@@ -17,6 +19,7 @@ values (
 ), (
     2,
     'How to Run JMeter Test Plan Via Docker',
+    'how-to-run-jmeter-teste-plan-via-docker',
     current_date,
     'I decided that my journey to learn to run JMeter is interesting and that’s when I decided to write a blog. So here I am, sharing what I learnt.',
     'Description',
