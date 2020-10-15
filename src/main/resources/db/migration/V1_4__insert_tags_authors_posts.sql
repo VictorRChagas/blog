@@ -6,6 +6,7 @@ insert into AUTHOR (ID, NAME, EMAIL)
 values (1, 'Gaspar Barancelli Junior', 'gasparbarancelli@gmail.com'),
        (2, 'João Chagas', 'jvrc2000@outlook.com');
 
+
 insert into POST (ID, TITLE, URL, LAST_MODIFIED, SUMMARY, DESCRIPTION)
 values (
     1,

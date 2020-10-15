@@ -50,7 +50,7 @@ public class Post {
         this.title = Objects.requireNonNull(title, "title must not be null").trim();
         this.summary = Objects.requireNonNull(summary, "summary must not be null");
         this.description = Objects.requireNonNull(description, "description must not be null");
-        this.url = StringUtils.removeAccents(this.title);
+        this.url = StringUtils.convertToUrlFormat(this.title);
         this.lastModified = LocalDate.now();
     }
 
