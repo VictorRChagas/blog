@@ -18,7 +18,7 @@ public class SitemapUrl implements Serializable {
     private LocalDate lastmod;
 
     @JacksonXmlProperty
-    private String changefreq;
+    private SitemapFrequency changefreq;
 
     @JacksonXmlProperty
     private Double priority;
@@ -30,7 +30,7 @@ public class SitemapUrl implements Serializable {
     private SitemapUrl(
             @NotNull String loc,
             @NotNull LocalDate lastmod,
-            @NotNull String changefreq,
+            @NotNull SitemapFrequency changefreq,
             @NotNull Double priority) {
         this.loc = Objects.requireNonNull(loc, "loc must not be null");
         this.lastmod = Objects.requireNonNull(lastmod, "lastmod must not be null");
@@ -41,7 +41,7 @@ public class SitemapUrl implements Serializable {
     public static SitemapUrl of(
             @NotNull String loc,
             @NotNull LocalDate lastmod,
-            @NotNull String changefreq,
+            @NotNull SitemapFrequency changefreq,
             @NotNull Double priority) {
         return new SitemapUrl(loc, lastmod, changefreq, priority);
     }
@@ -55,7 +55,7 @@ public class SitemapUrl implements Serializable {
     }
 
     public String getChangefreq() {
-        return changefreq;
+        return changefreq.name().toLowerCase();
     }
 
     public Double getPriority() {

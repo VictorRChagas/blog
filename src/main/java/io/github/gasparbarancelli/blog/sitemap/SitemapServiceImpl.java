@@ -18,7 +18,7 @@ public class SitemapServiceImpl implements SitemapService {
     public Sitemap get() {
         var urls = postService.findAll()
                 .stream()
-                .map(SitemapUrlConverter::converter)
+                .flatMap(it -> SitemapUrlConverter.converter(it).stream())
                 .collect(Collectors.toSet());
         return Sitemap.of(urls);
     }
