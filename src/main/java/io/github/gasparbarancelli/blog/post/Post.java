@@ -36,9 +36,6 @@ public class Post {
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
 
-    @Column(name = "URL_POST", nullable = false)
-    private String url;
-
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private final Set<PostTag> tags = new HashSet<>();
 
@@ -57,8 +54,8 @@ public class Post {
         this.lastModified = LocalDate.now();
     }
 
-    public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description, @NotNull String url) {
-        return new Post(title, summary, description, url);
+    public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description) {
+        return new Post(title, summary, description);
     }
 
     public Long getId() {
@@ -87,10 +84,6 @@ public class Post {
 
     public Set<PostTag> getTags() {
         return Collections.unmodifiableSet(tags);
-    }
-
-    public String getUrl() {
-        return url;
     }
 
     public Post addTag(Tag tag) {

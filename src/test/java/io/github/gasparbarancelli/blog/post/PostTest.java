@@ -14,12 +14,11 @@ public class PostTest {
     private static final String POST_TITLE = "Clean Code";
     private static final String POST_SUMMARY = "Summary";
     private static final String POST_DESCRIPTION = "Description";
-    private static final String POST_URL = "https://www.blog.com.br/clean-code";
     private Post post;
 
     @BeforeEach
     void init() {
-        post = Post.of(POST_TITLE, POST_SUMMARY, POST_DESCRIPTION, POST_URL);
+        post = Post.of(POST_TITLE, POST_SUMMARY, POST_DESCRIPTION);
     }
 
     @Test
@@ -40,7 +39,7 @@ public class PostTest {
 
     @Test
     public void uniqueByTitle() {
-        var post2 = Post.of(POST_TITLE, POST_SUMMARY, POST_DESCRIPTION, POST_URL);
+        var post2 = Post.of(POST_TITLE, POST_SUMMARY, POST_DESCRIPTION);
         Assertions.assertThrows(IllegalArgumentException.class, () -> Set.of(post, post2));
     }
 
