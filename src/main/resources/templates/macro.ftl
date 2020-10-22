@@ -62,3 +62,28 @@
         </div>
     </div>
 </#macro>
+
+<#macro page title css>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>${title}</title>
+        <base href="http://localhost:8080/" />
+        <link rel="stylesheet" type="text/css" href="webjars/css-reset/2.5.1/reset.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/font.css" />
+        <link rel="stylesheet" type="text/css" href="webjars/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/base.css" />
+        <link rel="stylesheet" type="text/css" href="css/${css}.css" />
+        <script src="webjars/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+        <script src="webjars/bootstrap/4.5.2/js/bootstrap.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+    <@header />
+    <div class="container">
+        <#nested>
+    </div>
+    <@footer tags />
+    <script src="js/index.js" type="text/javascript"></script>
+    </body>
+    </html>
+</#macro>

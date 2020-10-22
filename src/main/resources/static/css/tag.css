@@ -1,0 +1,16 @@
+h1 {
+    color: #F4511E;
+}
+.posts li {
+    margin-bottom: 1rem;
+}
+.posts li:last-child {
+    margin-bottom: 0;
+}
+.post-link {
+    color: #333;
+}
+.post-author {
+    font-size: 0.8rem;
+    color: #777;
+}
