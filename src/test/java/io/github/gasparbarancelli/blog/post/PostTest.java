@@ -32,9 +32,16 @@ public class PostTest {
         Assertions.assertEquals(POST_TITLE, post.getTitle());
         Assertions.assertEquals(POST_SUMMARY, post.getSummary());
         Assertions.assertEquals(POST_DESCRIPTION, post.getDescription());
+
         Assertions.assertEquals(0, post.getAuthors().size());
         Assertions.assertEquals(0, post.getTags().size());
         Assertions.assertEquals(LocalDate.now(), post.getLastModified());
+
+        var descriptionHtml = """
+                <div class="paragraph">
+                <p>Description</p>
+                </div>""";
+        Assertions.assertEquals(descriptionHtml, post.getDescriptionHtml());
     }
 
     @Test

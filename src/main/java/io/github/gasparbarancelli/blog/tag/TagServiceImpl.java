@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class TagServiceImpl implements TagService {
@@ -28,4 +29,9 @@ public class TagServiceImpl implements TagService {
         return tagData.findAllByOrderByDescription();
     }
 
+    @Override
+    public Optional<Tag> findByUrl(@NotNull String url) {
+        Objects.requireNonNull(url, "url must not be null");
+        return tagData.findByUrl(url);
+    }
 }

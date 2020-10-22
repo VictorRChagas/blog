@@ -1,4 +1,4 @@
-package io.github.gasparbarancelli.blog.post;
+package io.github.gasparbarancelli.blog.author;
 
 import io.github.gasparbarancelli.blog.author.Author;
 import org.junit.jupiter.api.Assertions;

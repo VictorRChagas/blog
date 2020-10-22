@@ -5,12 +5,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("newsletter")
-public class NewsLetterController {
+@RequestMapping("api/newsletter")
+public class NewsLetterApi {
 
     private final NewsLetterService newsLetterService;
 
-    public NewsLetterController(NewsLetterService newsLetterService) {
+    public NewsLetterApi(NewsLetterService newsLetterService) {
         this.newsLetterService = newsLetterService;
     }
 

@@ -22,12 +22,16 @@ public class FacadeService {
         this.postService = postService;
     }
 
+    public Optional<Tag> getTagByUrl(@NotNull String url) {
+        return tagService.findByUrl(url);
+    }
+
     public List<Tag> getTags() {
         return tagService.findAllByOrderByDescription();
     }
 
-    public List<Post> findTop5PostsByTag(@NotNull Tag tag) {
-        return postService.findByTag(tag, PageRequest.of(0, 5));
+    public List<Post> findPostsByTag(@NotNull Tag tag, int size) {
+        return postService.findByTag(tag, PageRequest.of(0, size));
     }
 
     public Optional<Post> getPostByUrl(@NotNull String url) {

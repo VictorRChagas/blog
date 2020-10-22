@@ -1,4 +1,4 @@
-package io.github.gasparbarancelli.blog.post;
+package io.github.gasparbarancelli.blog.tag;
 
 import io.github.gasparbarancelli.blog.tag.Tag;
 import org.junit.jupiter.api.Assertions;
@@ -20,6 +20,7 @@ public class TagTest {
         var tag = Tag.of(TAG_DESCRIPTION);
         Assertions.assertNull(tag.getId());
         Assertions.assertEquals(TAG_DESCRIPTION, tag.getDescription());
+        Assertions.assertEquals("java", tag.getUrl());
     }
 
     @Test
