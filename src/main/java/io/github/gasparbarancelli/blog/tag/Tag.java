@@ -1,5 +1,7 @@
 package io.github.gasparbarancelli.blog.tag;
 
+import io.github.gasparbarancelli.blog.utils.StringUtils;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
@@ -16,12 +18,16 @@ public class Tag {
     @Column(name = "DESCRIPTION", nullable = false, length = 100)
     private String description;
 
+    @Column(name = "URL", nullable = false, length = 150)
+    private String url;
+
     @Deprecated
     public Tag() {
     }
 
     private Tag(@NotNull String description) {
         this.description = Objects.requireNonNull(description, "description must not be null");
+        this.url = StringUtils.convertToUrlFormat(this.description);
     }
 
     public static Tag of(@NotNull String description) {
@@ -34,6 +40,10 @@ public class Tag {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     @Override

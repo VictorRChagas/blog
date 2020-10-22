@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import io.github.gasparbarancelli.blog.ui.UserInterfaceInterceptor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,10 +14,7 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -27,8 +25,11 @@ public class WebConfig implements WebMvcConfigurer {
 
 	private final ObjectMapper objectMapperJson;
 
-	public WebConfig(ObjectMapper objectMapperJson) {
+	private final UserInterfaceInterceptor userInterfaceInterceptor;
+
+	public WebConfig(ObjectMapper objectMapperJson, UserInterfaceInterceptor userInterfaceInterceptor) {
 		this.objectMapperJson = objectMapperJson;
+		this.userInterfaceInterceptor = userInterfaceInterceptor;
 	}
 
 	@Override
@@ -38,17 +39,24 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(userInterfaceInterceptor)
+				.excludePathPatterns(
+						"/img/**",
+						"/css/**",
+						"/js/**",
+						"/webjars/**"
+				);
+	}
+
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler(
-				"/img/**",
-				"/css/**",
-				"/js/**",
-				"/webjars/**")
+		registry.addResourceHandler("/**")
 				.addResourceLocations(
-						"classpath:static/img/",
-						"classpath:static/css/",
-						"classpath:static/js/",
-						"/webjars/");
+						"classpath:/META-INF/resources/",
+						"classpath:/resources/",
+						"classpath:/static/", "/webjars/"
+				);
 	}
 
 	private MappingJackson2HttpMessageConverter customJackson2HttpJsonMessageConverter() {

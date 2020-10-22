@@ -3,14 +3,14 @@ package io.github.gasparbarancelli.blog.post;
 import io.github.gasparbarancelli.blog.author.Author;
 import io.github.gasparbarancelli.blog.tag.Tag;
 import io.github.gasparbarancelli.blog.utils.StringUtils;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+
+import static org.asciidoctor.Asciidoctor.Factory.create;
 
 @Entity
 @Table(name = "POST")
@@ -27,6 +27,7 @@ public class Post {
     @Column(name = "URL", nullable = false, length = 150)
     private String url;
 
+    @LastModifiedDate
     @Column(name = "LAST_MODIFIED", nullable = false)
     private LocalDate lastModified;
 
@@ -35,6 +36,9 @@ public class Post {
 
     @Column(name = "DESCRIPTION", nullable = false)
     private String description;
+
+    @Column(name = "DESCRIPTION_HTML", nullable = false)
+    private String descriptionHtml;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private final Set<PostTag> tags = new HashSet<>();
@@ -52,6 +56,8 @@ public class Post {
         this.description = Objects.requireNonNull(description, "description must not be null");
         this.url = StringUtils.convertToUrlFormat(this.title);
         this.lastModified = LocalDate.now();
+
+        this.descriptionHtml = create().convert(description, new HashMap<>());
     }
 
     public static Post of(@NotNull String title, @NotNull String summary, @NotNull String description) {
@@ -80,6 +86,10 @@ public class Post {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getDescriptionHtml() {
+        return descriptionHtml;
     }
 
     public Set<PostTag> getTags() {

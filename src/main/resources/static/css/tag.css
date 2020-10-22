@@ -1,17 +1,11 @@
 h1 {
     color: #F4511E;
 }
-.tag {
-    margin-bottom: 2rem;
-}
 .posts li {
     margin-bottom: 1rem;
 }
 .posts li:last-child {
     margin-bottom: 0;
-}
-.tag-link:hover {
-    text-decoration: none;
 }
 .post-link {
     color: #333;

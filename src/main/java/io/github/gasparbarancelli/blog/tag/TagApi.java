@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("tag")
-public class TagController {
+@RequestMapping("api/tag")
+public class TagApi {
 
     private final TagService tagService;
 
-    public TagController(TagService tagService) {
+    public TagApi(TagService tagService) {
         this.tagService = tagService;
     }
 
