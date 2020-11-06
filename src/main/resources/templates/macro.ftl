@@ -68,8 +68,25 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-101374469-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-101374469-1');
+        </script>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KNVSRKB');</script>
+        <!-- End Google Tag Manager -->
+
         <title>${title}</title>
-        <base href="http://gasparbarancelli.com/" />
+        <base href="http://www.gasparbarancelli.com/" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/css-reset/2.5.1/reset.min.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'css/font.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/bootstrap/4.5.2/css/bootstrap.min.css'/>" />
@@ -84,7 +101,7 @@
         <meta property="og:site_name" content="Blog - Gaspar Barancelli ">
         <meta property="og:title" content="${title}" />
         <meta property="og:description" content="${description}" />
-        <meta property="og:image" itemprop="image" content="http://gasparbarancelli.com/img/icon_64.png">
+        <meta property="og:image" itemprop="image" content="http://www.gasparbarancelli.com/img/icon_64.png">
         <meta property="og:type" content="website" />
         <meta property="og:updated_time" content="1440432930" />
         <meta name="Description" content="${description}">
@@ -92,10 +109,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="robots" content="index, follow">
         <meta http-equiv="Content-Language" content="pt-br"/>
-        <link rel="canonical" href="http://gasparbarancelli.com/${springMacroRequestContext.getRequestUri()}"/>
-        <title>${title}</title>
+        <link rel="canonical" href="http://www.gasparbarancelli.com/${springMacroRequestContext.getRequestUri()}"/>
     </head>
     <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNVSRKB"
+                      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <@header />
     <div class="container">
         <#nested>
