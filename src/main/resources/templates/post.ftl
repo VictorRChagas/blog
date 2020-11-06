@@ -1,5 +1,5 @@
 <#import "macro.ftl" as macro>
-<@macro.page post.title post.summary keyworks "post">
+<@macro.page post.title post.summary keyworks "post", "asciidoctor">
     <article class="post">
         <h1>${post.title}</h1>
         <div class="lastModified">

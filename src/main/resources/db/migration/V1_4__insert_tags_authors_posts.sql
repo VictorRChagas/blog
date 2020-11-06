@@ -1,9 +1,5 @@
 insert into TAG (ID, DESCRIPTION, URL)
-values (1, 'Java', 'java'),
-       (2, 'Angular', 'angular'),
-       (3, 'MySQL', 'mysql'),
-       (4, 'Docker', 'docker'),
-       (5, 'Kubernetes', 'kubernetes');
+values (1, 'Spring', 'spring');
 
 
 insert into AUTHOR (ID, NAME, EMAIL)
@@ -14,101 +10,53 @@ values (1, 'Gaspar Barancelli Junior', 'gasparbarancelli@gmail.com'),
 insert into POST (ID, TITLE, URL, LAST_MODIFIED, SUMMARY, DESCRIPTION, DESCRIPTION_HTML)
 values (
     1,
-    'Java Spring OAuth2 and Basic Auth Support',
-    'java-spring-oauth2-and-basic-auth-support',
+    'Ativando a compactação GZip no Spring Boot',
+    'ativando-a-compactacao-gzip-no-spring-boot',
     current_date,
-    'The goal of the post is to share an idea of how can we provide the basic authentication and OAuth 2 authentication for the APIs.',
-    '= Hello, AsciiDoc!
-Doc Writer <doc@example.com>
+    'A compressão GZip é uma forma muito simples e eficaz de economizar largura de banda e melhorar a velocidade do seu site.',
+    'A compressão GZip é uma forma muito simples e eficaz de economizar largura de banda e melhorar a velocidade do seu site.
 
-An introduction to http://asciidoc.org[AsciiDoc].
+Ele reduz o tempo de resposta do seu site ao compactar os recursos e enviá-los aos clientes.
 
-== First Section
+A compressão GZip é desabilitada por padrão no Spring Boot. Para ativá-lo, adicione as seguintes propriedades ao seu arquivo de configuração *application.properties*
 
-* item 1
-* item 2
+```properties
+# Ativar compressão de resposta
+server.compression.enabled=true
 
-[source,ruby]
-puts "Hello, World!"',
-'<div id="preamble">
-<div class="sectionbody">
+# A lista separada por vírgulas de tipos MIME que devem ser compactados
+server.compression.mime-types=text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+
+# Compacte a resposta apenas se o tamanho da resposta for de pelo menos 1 KB
+server.compression.min-response-size=1024
+```
+
+Observe que a compactação GZip tem uma pequena sobrecarga. Portanto, adicione a propriedade *min-response-size* para dizer ao servidor de boot do Spring para compactar a resposta apenas se o tamanho for maior do que o valor fornecido.
+
+', '<div class="paragraph">
+<p>A compressão GZip é uma forma muito simples e eficaz de economizar largura de banda e melhorar a velocidade do seu site.</p>
+</div>
 <div class="paragraph">
-<p>An introduction to <a href="http://asciidoc.org">AsciiDoc</a>.</p>
+<p>Ele reduz o tempo de resposta do seu site ao compactar os recursos e enviá-los aos clientes.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_first_section">First Section</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>item 1</p>
-</li>
-<li>
-<p>item 2</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>A compressão GZip é desabilitada por padrão no Spring Boot. Para ativá-lo, adicione as seguintes propriedades ao seu arquivo de configuração <strong>application.properties</strong></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts "Hello, World!"</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Ativar compressão de resposta
+server.compression.enabled=true
+
+# A lista separada por vírgulas de tipos MIME que devem ser compactados
+server.compression.mime-types=text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+
+# Compacte a resposta apenas se o tamanho da resposta for de pelo menos 1 KB
+server.compression.min-response-size=1024</code></pre>
 </div>
 </div>
-</div>
-</div>
+<div class="paragraph">
+<p>Observe que a compactação GZip tem uma pequena sobrecarga. Portanto, adicione a propriedade <strong>min-response-size</strong> para dizer ao servidor de boot do Spring para compactar a resposta apenas se o tamanho for maior do que o valor fornecido.</p>
+</div>');
 
-Process finished with exit code 0
-'
-), (
-    2,
-    'How to Run JMeter Test Plan Via Docker',
-    'how-to-run-jmeter-teste-plan-via-docker',
-    current_date,
-    'I decided that my journey to learn to run JMeter is interesting and that’s when I decided to write a blog. So here I am, sharing what I learnt.',
-    '= Hello, AsciiDoc!
-Doc Writer <doc@example.com>
-
-An introduction to http://asciidoc.org[AsciiDoc].
-
-== First Section
-
-* item 1
-* item 2
-
-[source,ruby]
-puts "Hello, World!"',
-    '<div id="preamble">
-    <div class="sectionbody">
-    <div class="paragraph">
-    <p>An introduction to <a href="http://asciidoc.org">AsciiDoc</a>.</p>
-    </div>
-    </div>
-    </div>
-    <div class="sect1">
-    <h2 id="_first_section">First Section</h2>
-    <div class="sectionbody">
-    <div class="ulist">
-    <ul>
-    <li>
-    <p>item 1</p>
-    </li>
-    <li>
-    <p>item 2</p>
-    </li>
-    </ul>
-    </div>
-    <div class="listingblock">
-    <div class="content">
-    <pre class="highlight"><code class="language-ruby" data-lang="ruby">puts "Hello, World!"</code></pre>
-    </div>
-    </div>
-    </div>
-    </div>
-
-    Process finished with exit code 0
-    '
-);
-
-insert into POST_AUTHOR (ID_POST, ID_AUTHOR) values ( 1, 1 ), ( 2, 2 );
-insert into POST_TAG (ID_POST, ID_TAG) VALUES ( 1, 1 ), ( 2, 1 ), ( 2, 4 );
+insert into POST_AUTHOR (ID_POST, ID_AUTHOR) values ( 1, 1 );
+insert into POST_TAG (ID_POST, ID_TAG) VALUES ( 1, 1 );

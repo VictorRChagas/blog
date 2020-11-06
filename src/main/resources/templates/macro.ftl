@@ -63,18 +63,21 @@
     </div>
 </#macro>
 
-<#macro page title description keywords css>
+<#macro page title description keywords css...>
     <#import "spring.ftl" as spring />
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <title>${title}</title>
-        <base href="http://gasparbarancelli.com/" />
+        <base href="http://localhost:8080/" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/css-reset/2.5.1/reset.min.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'css/font.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/bootstrap/4.5.2/css/bootstrap.min.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'css/base.css'/>" />
-        <link rel="stylesheet" type="text/css" href="<@spring.url 'css/${css}.css'/>" />
+        <#list css as cssImport>
+            <link rel="stylesheet" type="text/css" href="<@spring.url 'css/${cssImport}.css'/>" />
+        </#list>
+
         <script src="<@spring.url 'webjars/jquery/3.5.1/jquery.min.js'/>" type="text/javascript"></script>
         <script src="<@spring.url 'webjars/bootstrap/4.5.2/js/bootstrap.min.js'/>" type="text/javascript"></script>
 
