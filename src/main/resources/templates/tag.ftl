@@ -1,5 +1,5 @@
 <#import "macro.ftl" as macro>
-<@macro.page "Em Desenvolvimento" "tag">
+<@macro.page "Categorias" "Posts relacionados a categoria ${tag.description}" tag.description "tag">
     <div class="row">
         <div class="col-12 tag">
             <h1>${tag.description}</h1>

@@ -1,5 +1,9 @@
 <#import "macro.ftl" as macro>
-<@macro.page "Blog" "index">
+<@macro.page
+    "Blog"
+    "Programação, desenvolvimento da Web e notícias de DevOps, tutoriais e ferramentas para iniciantes a especialistas, contendo centenas de publicações gratuitas"
+    "programação, desenvolvimento de software, devops, java, agile, web, iot, database, mobile, big data, cloud, docker, kubernetes"
+    "index">
     <div class="row">
         <#list postsByTag as tag, posts>
             <div class="col-12 col-md-6 tag">

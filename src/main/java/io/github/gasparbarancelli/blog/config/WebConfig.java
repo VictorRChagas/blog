@@ -9,15 +9,20 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.http.CacheControl;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.resource.CssLinkResourceTransformer;
+import org.springframework.web.servlet.resource.ResourceUrlEncodingFilter;
+import org.springframework.web.servlet.resource.VersionResourceResolver;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Configuration
 @EnableWebMvc
@@ -49,14 +54,24 @@ public class WebConfig implements WebMvcConfigurer {
 				);
 	}
 
+	@Bean
+	public ResourceUrlEncodingFilter resourceUrlEncodingFilter() {
+		return new ResourceUrlEncodingFilter();
+	}
+
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**")
 				.addResourceLocations(
 						"classpath:/META-INF/resources/",
 						"classpath:/resources/",
-						"classpath:/static/", "/webjars/"
-				);
+						"classpath:/static/",
+						"/webjars/"
+				)
+				.setCacheControl(CacheControl.maxAge(365, TimeUnit.DAYS))
+				.resourceChain(true)
+				.addResolver(new VersionResourceResolver().addContentVersionStrategy("/**"))
+				.addTransformer(new CssLinkResourceTransformer());
 	}
 
 	private MappingJackson2HttpMessageConverter customJackson2HttpJsonMessageConverter() {
