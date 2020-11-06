@@ -1,10 +1,15 @@
 package io.github.gasparbarancelli.blog.ui;
 
+import io.github.gasparbarancelli.blog.post.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.constraints.NotNull;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("post")
@@ -22,9 +27,17 @@ public class PostController {
                 .map(post -> {
                     var model = new ModelAndView("post");
                     model.addObject("post", post);
+                    model.addObject("keyworks", getKeyWords(post));
                     return model;
                 })
                 .orElseGet(() -> new ModelAndView("redirect:/"));
+    }
+
+    private String getKeyWords(@NotNull Post post) {
+        Objects.requireNonNull(post, "post must not be null");
+        return post.getTags().stream()
+                .map(it -> it.getTag().getDescription())
+                .collect(Collectors.joining());
     }
 
 }
