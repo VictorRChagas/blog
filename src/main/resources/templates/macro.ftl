@@ -69,7 +69,7 @@
     <html lang="en">
     <head>
         <title>${title}</title>
-        <base href="http://localhost:8080/" />
+        <base href="http://gasparbarancelli.com/" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/css-reset/2.5.1/reset.min.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'css/font.css'/>" />
         <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/bootstrap/4.5.2/css/bootstrap.min.css'/>" />
