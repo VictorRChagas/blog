@@ -22,7 +22,7 @@
                     <img src="img/icon_128.png" width="128px" height="128px" alt="Logo"/>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <span>TAGS</span>
+                    <span>CATEGORIAS</span>
                     <ul>
                         <#list tags as tag>
                             <li>
@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <span>ABOUT</span>
+                    <span>SOBRE</span>
                     <ul>
                         <li>
                             <a href="/development">
@@ -43,17 +43,17 @@
                         </li>
                         <li>
                             <a href="/development">
-                                AUTHORS
+                                AUTORES
                             </a>
                         </li>
                         <li>
                             <a href="/development">
-                                JOBS
+                                TRABALHOS
                             </a>
                         </li>
                         <li>
                             <a href="/development">
-                                OUR PATTERNS
+                                NOSSOS PARCEIROS
                             </a>
                         </li>
                     </ul>
