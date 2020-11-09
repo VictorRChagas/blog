@@ -6,7 +6,8 @@ h1 {
 .lastModified {
     margin-bottom: 3rem;
 }
-.similar {
+.similar,
+.share {
     margin-top: 50px;
 }
 .similar ul {

@@ -8,6 +8,13 @@
         ${post.descriptionHtml}
     </article>
 
+    <div class="share">
+        <h4>
+            // Compartilhe esse Post
+        </h4>
+        <div class="sharethis-inline-share-buttons"></div>
+    </div>
+
     <#if similarList?has_content>
         <nav class="similar">
             <h4>
