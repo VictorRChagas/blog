@@ -11,16 +11,16 @@ import java.util.Objects;
 @JacksonXmlRootElement(localName = "url")
 public class SitemapUrl implements Serializable {
 
-    @JacksonXmlProperty
+    @JacksonXmlProperty(namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
     private String loc;
 
-    @JacksonXmlProperty
+    @JacksonXmlProperty(namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
     private LocalDate lastmod;
 
-    @JacksonXmlProperty
+    @JacksonXmlProperty(namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
     private SitemapFrequency changefreq;
 
-    @JacksonXmlProperty
+    @JacksonXmlProperty(namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
     private Double priority;
 
     @Deprecated

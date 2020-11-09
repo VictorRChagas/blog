@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import io.github.gasparbarancelli.blog.ui.UserInterfaceInterceptor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -89,8 +90,9 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 	private MappingJackson2XmlHttpMessageConverter customJackson2HttpXmlMessageConverter() {
-		ObjectMapper xmlMapper = new XmlMapper();
+		XmlMapper xmlMapper = new XmlMapper();
 		xmlMapper.registerModule(getModule());
+		xmlMapper.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
 		MappingJackson2XmlHttpMessageConverter converter = new MappingJackson2XmlHttpMessageConverter();
 		converter.setObjectMapper(xmlMapper);
 		return converter;

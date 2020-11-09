@@ -5,16 +5,17 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlSchema;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@JacksonXmlRootElement(localName = "urlset")
+@JacksonXmlRootElement(localName = "urlset", namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
 public class Sitemap implements Serializable {
 
-    @JacksonXmlProperty(localName = "url")
+    @JacksonXmlProperty(localName = "url", namespace = "http://www.sitemaps.org/schemas/sitemap/0.9")
     @JacksonXmlElementWrapper(useWrapping = false)
     private final Set<SitemapUrl> urls = new HashSet<>();
 
