@@ -123,6 +123,8 @@ Thread Id: 24, Value: 1
 Thread Id: 23, Value: 2
 Thread Id: 24, Value: 2
 ```
+
+O código fonte dessa aplicação esta no https://github.com/gasparbarancelli/java-multithreading/tree/master/src/com/gasparbarancelli/multithreading/startingThreads[repositório] hospedado no GitHub.
 ', '<div class="paragraph">
 <p>Levando em conta a arquitetura multicore presente nos processadores atuais, nossa aplicação é capaz de executar mais de uma tarefa simultaneamente, e o Java desde as suas primeiras versões disponibiliza diversas APIs para trabalhar com paralelismo.</p>
 </div>
@@ -255,6 +257,9 @@ Thread Id: 24, Value: 1
 Thread Id: 23, Value: 2
 Thread Id: 24, Value: 2</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>O código fonte dessa aplicação esta no <a href="https://github.com/gasparbarancelli/java-multithreading/tree/master/src/com/gasparbarancelli/multithreading/startingThreads">repositório</a> hospedado no GitHub.</p>
 </div>');
 
 insert into TAG (ID, DESCRIPTION, URL)
