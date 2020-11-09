@@ -1,6 +1,15 @@
 <#import "macro.ftl" as macro>
 <@macro.page post.title post.summary keyworks "post", "asciidoctor">
     <article class="post">
+        <div class="author">
+            <span>POR:</span>
+            <#list post.authors as postAuthor>
+                <a href="/author/${postAuthor.author.email}" target="_blank">
+                    ${postAuthor.author.name}
+                </a>
+                <#sep>, </#sep>
+            </#list>
+        </div>
         <h1>${post.title}</h1>
         <div class="lastModified">
             Última modificação em ${(post.lastModified).format("EEEE, dd 'de' MMMM 'de' yyyy")}
