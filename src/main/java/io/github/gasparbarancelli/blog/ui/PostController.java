@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @RequestMapping("post")
 public class PostController {
 
+    private static final int SIZE_SIMILAR_POSTS = 5;
+
     private final FacadeService facadeService;
 
     public PostController(FacadeService facadeService) {
@@ -25,9 +27,12 @@ public class PostController {
     public ModelAndView get(@PathVariable("url") String url) {
         return facadeService.getPostByUrl(url)
                 .map(post -> {
+                    var similarList = facadeService.getSimilarPosts(post.getId(), SIZE_SIMILAR_POSTS);
+
                     var model = new ModelAndView("post");
                     model.addObject("post", post);
                     model.addObject("keyworks", getKeyWords(post));
+                    model.addObject("similarList", similarList);
                     return model;
                 })
                 .orElseGet(() -> new ModelAndView("redirect:/"));

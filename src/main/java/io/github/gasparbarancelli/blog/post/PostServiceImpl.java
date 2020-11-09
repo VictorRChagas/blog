@@ -1,5 +1,6 @@
 package io.github.gasparbarancelli.blog.post;
 
+import io.github.gasparbarancelli.blog.post.to.PostSimilar;
 import io.github.gasparbarancelli.blog.tag.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,13 @@ import java.util.Optional;
 @Service
 public class PostServiceImpl implements PostService {
 
+    private final PostNativeQuery postNativeQuery;
+
     private final PostData postData;
 
-    public PostServiceImpl(PostData postData) {
+    public PostServiceImpl(PostData postData, PostNativeQuery postNativeQuery) {
         this.postData = postData;
+        this.postNativeQuery = postNativeQuery;
     }
 
     @Override
@@ -25,6 +29,13 @@ public class PostServiceImpl implements PostService {
         Objects.requireNonNull(tag, "tag must not be null");
         Objects.requireNonNull(pageable, "pageable must not be null");
         return postData.findByTag(tag, pageable);
+    }
+
+    @Override
+    public List<PostSimilar> getSimilarPosts(@NotNull Long id, @NotNull Integer limit) {
+        Objects.requireNonNull(id, "id must not be null");
+        Objects.requireNonNull(limit, "limit must not be null");
+        return postNativeQuery.getSimilarPosts(id, limit);
     }
 
     // todo on pre save, we need to check if the post got updated if so,

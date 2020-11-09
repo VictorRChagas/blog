@@ -14,6 +14,9 @@ public interface PostData extends JpaRepository<Post, Long> {
     @Query("select p from Post p inner join p.tags t where t.tag = ?1")
     List<Post> findByTag(@NotNull Tag tag, @NotNull Pageable pageable);
 
+    @Query("select p from Post p inner join p.tags t where t.tag = ?1 and p.id <> ?2")
+    List<Post> findByTagAndIdNotEquals(@NotNull Tag tag, @NotNull Long id, @NotNull Pageable pageable);
+
     Optional<Post> findByUrl(@NotNull String url);
 
 }

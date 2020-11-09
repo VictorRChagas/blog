@@ -6,3 +6,12 @@ h1 {
 .lastModified {
     margin-bottom: 3rem;
 }
+.similar {
+    margin-top: 50px;
+}
+.similar ul {
+    margin: 0;
+}
+.similar li {
+    margin: 5px 0;
+}

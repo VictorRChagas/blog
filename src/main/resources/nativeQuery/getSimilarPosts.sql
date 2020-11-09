@@ -1,0 +1,15 @@
+SELECT
+    TITLE as title,
+    URL as url
+FROM POST
+WHERE ID <> :id
+  AND EXISTS (
+    SELECT *
+    FROM POST_TAG AS POST_TAG_
+    WHERE POST.ID = POST_TAG_.ID_POST AND EXISTS (
+        SELECT * FROM POST_TAG
+        WHERE POST_TAG.ID_POST = :id
+        AND POST_TAG_.ID_TAG = POST_TAG.ID_TAG
+    )
+)
+limit :limit

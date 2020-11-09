@@ -20,6 +20,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>io.github.gasparbarancelli</groupId>
+			<artifactId>spring-native-query</artifactId>
+			<version>1.0.28</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.4.8</version>
