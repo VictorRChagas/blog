@@ -111,7 +111,7 @@
         <meta http-equiv="Content-Language" content="pt-br"/>
         <link rel="canonical" href="http://www.gasparbarancelli.com/${springMacroRequestContext.getRequestUri()}"/>
 
-        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=5fa93bfe7efc200012ec7119&product=inline-share-buttons" async="async"></script>
+        <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5fa93ae21a075b00196b771d&product=inline-share-buttons' async='async'></script>
     </head>
     <body>
     <!-- Google Tag Manager (noscript) -->
