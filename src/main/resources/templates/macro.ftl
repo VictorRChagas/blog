@@ -1,10 +1,11 @@
 <#macro header>
+    <#import "spring.ftl" as spring />
     <nav class="header">
         <div class="container">
             <div class="row">
                 <div class="col-6">
                     <a href="/">
-                        <img src="img/icon_64.png" width="64px" height="64px" alt="Logo"/>
+                        <img src="<@spring.url '/img/icon_64.png'/>" width="64px" height="64px" alt="Logo"/>
                         <span class="title">Blog</span>
                     </a>
                 </div>
@@ -15,11 +16,12 @@
 </#macro>
 
 <#macro footer tags>
+    <#import "spring.ftl" as spring />
     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <img src="img/icon_128.png" width="128px" height="128px" alt="Logo"/>
+                    <img src="<@spring.url '/img/icon_128.png'/>" width="128px" height="128px" alt="Logo"/>
                 </div>
                 <div class="col-12 col-lg-4">
                     <span>CATEGORIAS</span>
@@ -86,17 +88,16 @@
         <!-- End Google Tag Manager -->
 
         <title>${title}</title>
-        <base href="http://www.gasparbarancelli.com/" />
-        <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/css-reset/2.5.1/reset.min.css'/>" />
-        <link rel="stylesheet" type="text/css" href="<@spring.url 'css/font.css'/>" />
-        <link rel="stylesheet" type="text/css" href="<@spring.url 'webjars/bootstrap/4.5.2/css/bootstrap.min.css'/>" />
-        <link rel="stylesheet" type="text/css" href="<@spring.url 'css/base.css'/>" />
+        <link rel="stylesheet" type="text/css" href="<@spring.url '/webjars/css-reset/2.5.1/reset.min.css'/>" />
+        <link rel="stylesheet" type="text/css" href="<@spring.url '/css/font.css'/>" />
+        <link rel="stylesheet" type="text/css" href="<@spring.url '/webjars/bootstrap/4.5.2/css/bootstrap.min.css'/>" />
+        <link rel="stylesheet" type="text/css" href="<@spring.url '/css/base.css'/>" />
         <#list css as cssImport>
-            <link rel="stylesheet" type="text/css" href="<@spring.url 'css/${cssImport}.css'/>" />
+            <link rel="stylesheet" type="text/css" href="<@spring.url '/css/${cssImport}.css'/>" />
         </#list>
 
-        <script src="<@spring.url 'webjars/jquery/3.5.1/jquery.min.js'/>" type="text/javascript"></script>
-        <script src="<@spring.url 'webjars/bootstrap/4.5.2/js/bootstrap.min.js'/>" type="text/javascript"></script>
+        <script src="<@spring.url '/webjars/jquery/3.5.1/jquery.min.js'/>" type="text/javascript"></script>
+        <script src="<@spring.url '/webjars/bootstrap/4.5.2/js/bootstrap.min.js'/>" type="text/javascript"></script>
 
         <meta property="og:site_name" content="Blog - Gaspar Barancelli ">
         <meta property="og:title" content="${title}" />
@@ -123,7 +124,7 @@
         <#nested>
     </div>
     <@footer tags />
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="<@spring.url '/js/index.js'/>" type="text/javascript"></script>
     </body>
     </html>
 </#macro>
