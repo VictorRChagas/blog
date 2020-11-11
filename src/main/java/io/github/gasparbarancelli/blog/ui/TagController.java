@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import static io.github.gasparbarancelli.blog.utils.RedirectUtil.defaultRedirect;
+
 @Controller
 @RequestMapping("tag")
 public class TagController {
@@ -28,7 +30,6 @@ public class TagController {
                     model.addObject("posts", posts);
                     return model;
                 })
-                .orElseGet(() -> new ModelAndView("redirect:/"));
+                .orElseGet(defaultRedirect);
     }
-
 }

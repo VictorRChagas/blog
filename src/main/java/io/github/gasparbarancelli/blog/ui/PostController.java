@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import static io.github.gasparbarancelli.blog.utils.RedirectUtil.defaultRedirect;
+
 @Controller
 @RequestMapping("post")
 public class PostController {
@@ -35,7 +37,7 @@ public class PostController {
                     model.addObject("similarList", similarList);
                     return model;
                 })
-                .orElseGet(() -> new ModelAndView("redirect:/"));
+                .orElseGet(defaultRedirect);
     }
 
     private String getKeyWords(@NotNull Post post) {

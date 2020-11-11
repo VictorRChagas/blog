@@ -19,4 +19,8 @@ public class StringUtils {
                 .replace(" ", "-");
     }
 
+    public static String removeSequentialBlankSpace(String value) {
+        return removeAccents(value.trim()).replaceAll("\\s{2,}", " ");
+    }
+
 }
